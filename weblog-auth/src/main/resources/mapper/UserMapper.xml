@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leemuzi.weblog.auth.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.leemuzi.weblog.auth.pojo.DO.UserDO">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" resultType="com.leemuzi.weblog.auth.pojo.DO.UserDO"
+            parameterType="java.lang.Long">
+        select * from t_user where id = #{id}
+    </select>
+
+
+</mapper>
